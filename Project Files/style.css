@@ -41,7 +41,7 @@
 }
 .log-in:hover{
     background-color: var(--main-bg-color);
-    transform: scale(1.1);
+    transform: scale(1.03);
     box-shadow: 1px 1px 1px rgba(20, 20, 20, 0.2 );
     
 }
@@ -91,7 +91,9 @@
     
 }
 .card p{
-    font-weight: 600;
+    font-weight: 200;
+    font-family: var(--header-text);
+    font-size: 1.2rem;
 }
 .card-info {
     display: flex;
@@ -99,6 +101,7 @@
     justify-content: flex-start;
     background-color: transparent;
     margin-bottom: 0.4rem;
+    gap: 0.3rem;
 }
 .card-info > p , span{
     background: transparent;
@@ -122,6 +125,103 @@
     
 }
 .no{
-    background-color: rgb(226, 137, 137)
+    background-color: rgb(226, 137, 137);
     
+}
+.delete:hover{
+    background-color: rgba(142, 138, 138, 0.5);
+}
+
+.yes:hover{
+    background-color: rgb(118, 178, 118);
+}
+.no:hover{
+    background-color: rgb(175, 112, 112);
+}
+
+#dialog{
+    text-align: center;
+    width: 320px;
+    padding: 0.5rem 2.8rem;
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    
+    
+}
+dialog > .dialog-part{
+    width: 100%;
+}
+.dialog-part > input{
+    width: 100%;
+    padding: 0.6rem 0;
+    border-radius: 0.7rem;
+    margin: 0.5rem 0;
+    padding-left: .6rem;
+    background-color: #d3dec0;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+}
+.dialog-inner-div > p{
+    font-family: var(--header-text);
+    font-size: 1.5rem;
+    margin-bottom: 0.6rem;
+}
+input::placeholder{
+    padding-left: 1rem;
+}
+#book-read{
+    cursor: pointer;
+   width: 1.2rem;;
+   height: 1.2rem;
+}
+.checkbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+.checkbox label{
+    font-family: var(--header-text);
+}
+.card button{
+    font-family: var(--header-text);
+}
+.submit-btn{
+    font-family: var(--header-text);
+    width: 100%;
+    border-radius: 0.7rem;
+    padding: 0.8rem 0;
+    margin: .5rem 0;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border: 1px solid black;
+    transition: transform 0.3s ease;
+}
+.submit-btn:hover{
+    background-color: rgb(124, 199, 124);
+    transform: scale(1.03);
+   border: white;
+    box-shadow: 1px 1px 1px rgba(20, 20, 20, 0.2 );
+}
+
+.cancel-btn{
+    font-family: var(--header-text);
+    width: 100%;
+    border-radius: 0.7rem;
+    padding: 0.8rem 0;
+    margin: 1rem 0;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border: 1px solid black;
+    transition: transform 0.3s ease;
+}
+.cancel-btn:hover{
+    background-color: rgb(210, 66, 66);
+    transform: scale(1.03);
+   border: white;
+    box-shadow: 1px 1px 1px rgba(20, 20, 20, 0.2 );
 }

@@ -1,96 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
 
-<body>
+  <body>
     <!--  main container starts here -->
     <div class="main-container">
-        <!-- header starts here -->
-        <div class="header">
-            <div class="inner-header">
-                <div class="icon-text">
-                    <p>Library</p>
-                </div>
-                <button class="log-in">
-                    Log in
-                </button>
-            </div>
+      <!-- header starts here -->
+      <div class="header">
+        <div class="inner-header">
+          <div class="icon-text">
+            <p>Library</p>
+          </div>
+          <button class="log-in">Log in</button>
         </div>
-        <!-- header ends here -->
+      </div>
+      <!-- header ends here -->
 
-
-        <!-- middle container starts here -->
-        <div class="container">
-
-
-            <div class="button-container">
-                <button class="add-book">
-                    + add book
-                </button>
-            </div>
-
-            <!-- cards container section starts here -->
-            <div class="cards-container">
-                <div class="card">
-                    <div class="title card-info">
-                    <p>Name:</p> 
-                    <span class="title-span "></span>
-                    </div>
-                    <div class="author card-info">
-                    <p>Author:</p> 
-                    <span class="author-span">rolando</span>
-                    </div>
-                    <div class="pages card-info">
-                    <p>Pages:</p>
-                <span class="pages-span">154</span>
-                    </div>
-                    <button class="readOrNot yes">read</button>
-                    <button class="delete">Remove</button>
-                </div>
-
-
-            </div>
-            <!-- cards container section ends here -->
-
-            <!-- designning dialog here -->
-            <dialog id="dialog">
-                <div class="dialog-inner-div">
-                    <p>Add New Book</p>
-                    <div class="title">
-                        <input required maxlength="100" type="text" placeholder="Title">
-                    </div>
-                    <div class="author">
-                        <input required maxlength="100" type="text" placeholder="Author">
-                    </div>
-                    <div class="pages">
-                        <input type="number" required max="12" placeholder="Pages">
-                    </div>
-                    <label for="book-read">Have You Read it.</label>
-                    <input type="checkbox" name="book-read" id="book-read">
-                </div>
-
-
-            </dialog>
-
-
+      <!-- middle container starts here -->
+      <div class="container">
+        <div class="button-container">
+          <button class="add-book">+ add book</button>
         </div>
-        <!-- middle container ends here -->
 
-
-        <!-- footer starts here -->
-        <div class="footer">
-
+        <!-- cards container section starts here -->
+        <div class="cards-container">
+          <!-- <div class="card"> 
+             <div class="title card-info">
+              <p>Name:</p>
+              <span class="title-span"></span>
+            </div>
+            <div class="author card-info">
+              <p>Author:</p>
+              <span class="author-span"></span>
+            </div>
+            <div class="pages card-info">
+              <p>Pages:</p>
+              <span class="pages-span"></span>
+            </div>
+            <button class="readOrNot"></button>
+            <button class="delete">Remove</button>
+          </div> -->
         </div>
-        <!-- footer ends here -->
+        <!-- cards container section ends here -->
 
+        <!-- designning dialog here -->
+        <dialog id="dialog">
+          <div class="dialog-inner-div">
+            <p>Add New Book</p>
+            <div class="title dialog-part">
+              <input id="titleData" required maxlength="100" type="text" placeholder="Title" />
+            </div>
+            <div class="author dialog-part">
+              <input id="authorData"
+                required
+                maxlength="100"
+                type="text"
+                placeholder="Author"
+              />
+            </div>
+            <div class="pages dialog-part">
+              <input type="number" id="pagesData" required max="12" placeholder="Pages" />
+            </div>
+            <div class="checkbox">
+              <label for="book-read">Have You Read it.</label>
+              <input type="checkbox" name="book-read" id="book-read" />
+            </div>
+            <button class="submit-btn" >Submit</button>
+
+            <button class="cancel-btn">Cancel</button>
+          </div>
+        </dialog>
+      </div>
+      <!-- middle container ends here -->
+
+      <!-- footer starts here -->
+      <div class="footer"></div>
+      <!-- footer ends here -->
     </div>
     <!--  main container ends here -->
-</body>
-
+  </body>
 </html>
