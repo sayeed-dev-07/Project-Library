@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!--  main container starts here -->
     <div class="main-container">
@@ -26,25 +28,55 @@
         <!-- middle container starts here -->
         <div class="container">
 
+
+            <div class="button-container">
+                <button class="add-book">
+                    + add book
+                </button>
+            </div>
+
+            <!-- cards container section starts here -->
+            <div class="cards-container">
+                <div class="card">
+                    <div class="title card-info">
+                    <p>Name:</p> 
+                    <span class="title-span "></span>
+                    </div>
+                    <div class="author card-info">
+                    <p>Author:</p> 
+                    <span class="author-span">rolando</span>
+                    </div>
+                    <div class="pages card-info">
+                    <p>Pages:</p>
+                <span class="pages-span">154</span>
+                    </div>
+                    <button class="readOrNot yes">read</button>
+                    <button class="delete">Remove</button>
+                </div>
+
+
+            </div>
+            <!-- cards container section ends here -->
+
             <!-- designning dialog here -->
-             <dialog id="dialog" open>
+            <dialog id="dialog">
                 <div class="dialog-inner-div">
                     <p>Add New Book</p>
-                <div class="title">
-                    <input required maxlength="100" type="text" placeholder="Title">
-                </div>
-                <div class="author">
+                    <div class="title">
+                        <input required maxlength="100" type="text" placeholder="Title">
+                    </div>
+                    <div class="author">
                         <input required maxlength="100" type="text" placeholder="Author">
+                    </div>
+                    <div class="pages">
+                        <input type="number" required max="12" placeholder="Pages">
+                    </div>
+                    <label for="book-read">Have You Read it.</label>
+                    <input type="checkbox" name="book-read" id="book-read">
                 </div>
-                <div class="pages">
-                    <input type="number" required max="12" placeholder="Pages">
-                </div>
-                <label for="book-read">Have You Read it.</label>
-                <input type="checkbox" name="book-read" id="book-read">
-                </div>
-                
 
-             </dialog>
+
+            </dialog>
 
 
         </div>
@@ -56,8 +88,9 @@
 
         </div>
         <!-- footer ends here -->
-        
+
     </div>
     <!--  main container ends here -->
 </body>
+
 </html>

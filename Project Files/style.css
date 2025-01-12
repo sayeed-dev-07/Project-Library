@@ -7,6 +7,7 @@
     --button-color: rgb(42, 160, 42);
     --primary-text:"Roboto", serif;
     --header-text: "Mochiy Pop One",serif;
+    --card-primary-color:#f1f0f2;
 }
 
 * {
@@ -41,6 +42,86 @@
 .log-in:hover{
     background-color: var(--main-bg-color);
     transform: scale(1.1);
+    box-shadow: 1px 1px 1px rgba(20, 20, 20, 0.2 );
     
 }
 
+.add-book{
+    padding: 1.1rem 2.2rem;
+    font-family: var(--header-text);
+    font-size: 1.7rem;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease;
+}
+.add-book:hover{
+    transform: scale(1.09);
+   
+}
+.button-container{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    padding-top: 2rem;
+    width: 100vw;
+}
+.cards-container{
+    
+    text-align: center;
+    margin: 2% 12%;
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2re
+}
+.card{
+    background-color: var(--header-bg-color);
+    font-size:1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    border: 2px solid;
+    padding: 4% 5%;
+    gap: 0.5rem;
+    line-height: 0.8;
+    
+}
+.card p{
+    font-weight: 600;
+}
+.card-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: transparent;
+    margin-bottom: 0.4rem;
+}
+.card-info > p , span{
+    background: transparent;
+}
+
+
+.card button{
+    width: 100%;
+    padding: 1rem ;
+    font-size:1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+.delete{
+    background-color: #e3e3e8;
+}
+
+/* book card read or not style */
+.yes{
+    background-color: rgb(143, 224, 143);
+    
+}
+.no{
+    background-color: rgb(226, 137, 137)
+    
+}
