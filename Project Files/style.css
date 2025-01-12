@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --main-bg-color: #ffffff;
+    --header-bg-color: #d0d2ad;
+    --hover-color: #2e2727;
+    --button-color: rgb(42, 160, 42);
+    --primary-text:"Roboto", serif;
+    --header-text: "Mochiy Pop One",serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--primary-text);
+    background-color: var(--main-bg-color);
+}
+
+.inner-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2% 15%;
+    background-color: var(--header-bg-color);
+}
+.icon-text p{
+    font-family: var(--header-text);
+    font-size: 2rem;
+    background: var(--header-bg-color);
+    cursor: pointer;
+}
+.log-in{
+    cursor: pointer;
+    background: var(--header-bg-color);
+    padding: 1rem 2.4rem;
+    font-family: var(--header-text);
+    font-size: 1.3rem;
+    border-radius: .2rem;
+    transition: transform 0.2s ease;
+}
+.log-in:hover{
+    background-color: var(--main-bg-color);
+    transform: scale(1.1);
+    
+}
+
