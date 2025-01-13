@@ -245,16 +245,16 @@ dialog::backdrop{
     #dialog{
         top: 25%;
         left: 10%;
-        width: 270px;
+        width: 250px;
         padding: 0.6rem 1.8rem;
         
     }
     .icon-text p{
-        font-size: 1.7rem;
+        font-size: 1.4rem;
     }
     .log-in{
-        font-size: 1.2rem;
-        padding: 0.9rem 2.2rem;
+        font-size: 1rem;
+        padding: 0.9rem 2rem;
     }
     input::placeholder{
         padding-left: 0.3rem;
