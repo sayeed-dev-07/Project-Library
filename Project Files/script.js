@@ -1,188 +1,179 @@
-// works with the dialog functionality
 
-const addBookBtn = document.querySelector(".add-book");
-const submitBtn = document.querySelector(".submit-btn");
-const cancelBtn = document.querySelector(".cancel-btn");
-const dialog = document.querySelector("#dialog");
-
-const cardContainer = document.querySelector(".cards-container");
-
-const titleData = document.querySelector("#titleData");
-const authorData = document.querySelector("#authorData");
-const pagesData = document.querySelector("#pagesData");
-
-addBookBtn.addEventListener("click", () => {
-  dialog.showModal();
-});
+// book data recevie
+let bookTitle;
+let bookAuthor;
+let bookPages;
+let bookStatus;
 
 
-// creating functions here
+// input collect
 
-const myLibrary = [];
+let titleData = document.querySelector('#titleData')
+let authorData = document.querySelector('#authorData')
+let pagesData = document.querySelector('#pagesData')
+let statusData = document.querySelector('#book-read')
 
-function book(title, author, pages, readOrNot) {
+
+let myLibrary = []
+
+const cardContainer = document.querySelector('.cards-container');
+
+let globalIndex = 0;
+
+function Book(title, author, pages, status) {
+
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.readOrNot = readOrNot;
+  this.status = status;
 }
 
-function addBookToLibrary(title, author, pages, readOrNot) {
-  myLibrary.push(new book(title, author, pages, readOrNot));
+function addBookToLibrary(bookTitle, bookAuthor, bookPages, bookStatus) {
+  myLibrary.push(new Book(bookTitle, bookAuthor, bookPages, bookStatus))
 }
 
+function createBook(libray) {
 
-function createStuff(){
-    
-    
-    
-}
-let readOrNotBtn = document.createElement("button");
+  cardContainer.innerHTML = '';
+  libray.forEach((element) => {
 
-function retriveData(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    
-    
-    let titleInfo = document.createElement("div");
-    titleInfo.classList.add("title", "card-info");
-    let titleSpan = document.createElement("span");
-    titleSpan.classList.add("title-span");
-    let pTitle = document.createElement("p");
-    pTitle.innerText = "Name:";
-    let authorInfo = document.createElement("div");
-    let spanAuthor = document.createElement("span");
-    let pagesInfo = document.createElement("div");
-    let pAuthor = document.createElement("p");
-    authorInfo.classList.add("author", "card-info");
-    let pPages = document.createElement("p");
-    let spanPages = document.createElement("span");
-    let deleteBtn = document.createElement("button");
-    let cards = document.createElement("div");
-    cards.classList.add("card");
-    pAuthor.innerText = "Author:";
-    spanAuthor.classList.add("author-span");
-    pagesInfo.classList.add("pages", "card-info");
-    pPages.innerText = "Pages:";
-    spanPages.classList.add("pages-span");
-    deleteBtn.classList.add("delete");
-    deleteBtn.innerText = "Remove";
-    
-    titleSpan.textContent = arr[i].title;
-    spanAuthor = arr[i].author;
-    spanPages = arr[i].pages;
-    if (!arr[i].readOrNot) {
-      readOrNotBtn.classList.add("no");
-      readOrNotBtn.innerText = "Not Read";
+    if (element.status === true) {
+      let div = document.createElement('div');
+      div.classList.add('card')
+      div.innerHTML = `
+    <div class="title card-info">
+              <p>Name:</p>
+              <span class="title-span">${element.title}</span>
+            </div>
+            <div class="author card-info">
+              <p>Author:</p>
+              <span class="author-span">${element.author}</span>
+            </div>
+            <div class="pages card-info">
+              <p>Pages:</p>
+              <span class="pages-span">${element.pages}</span>
+            </div>
+            <button onclick="colorChange(this)"  class="readOrNot yes">Read</button>
+            <button onclick="deleteMe(this)" class="delete">Remove</button>
+    `
+      cardContainer.appendChild(div)
+
     } else {
-      readOrNotBtn.classList.add("yes");
-      readOrNotBtn.innerText = "Read";
+      let div = document.createElement('div');
+      div.classList.add('card')
+      div.innerHTML = `
+    <div class="title card-info">
+              <p>Name:</p>
+              <span class="title-span">${element.title}</span>
+            </div>
+            <div class="author card-info">
+              <p>Author:</p>
+              <span class="author-span">${element.author}</span>
+            </div>
+            <div class="pages card-info">
+              <p>Pages:</p>
+              <span class="pages-span">${element.pages}</span>
+            </div>
+            <button onclick="colorChange(this)" class="readOrNot no">Not Read</button>
+            <button onclick="deleteMe(this)"  class="delete">Remove</button>
+    `
+      cardContainer.appendChild(div)
     }
+
+
+
+
+
+  });
+
+}
+
+
+// removing books 
+function deleteMe(event) {
+  let parentDiv = event.parentElement;
+  const index = Array.from(cardContainer.children).indexOf(parentDiv);
+  if (index > -1) {
+    myLibrary.splice(index, 1);
+    createBook(myLibrary);
   }
 
-  titleInfo.appendChild(pTitle);
-  titleInfo.appendChild(titleSpan);
-  authorInfo.appendChild(pAuthor);
-  authorInfo.appendChild(spanAuthor);
-  pagesInfo.appendChild(pPages);
-  pagesInfo.appendChild(spanPages);
-  addToContainer()
-
 }
 
 
 
-const bookReadCheck = document.querySelector("#book-read");
 
-// element creating
 
-function creatingElements() { 
-  
-
-  // class adding
-  
-  
-  
-  
-  
-  
-
-  
-
+function clearValue() {
+  titleData.value = '';
+  authorData.value = '';
+  pagesData.value = '';
+  statusData.checked = false;
 }
 
 
-function addToSubContainer(){
-  
-}
-function addToContainer(){
-  
 
-  cards.appendChild(titleInfo);
-  cards.appendChild(authorInfo);
-  cards.appendChild(pagesInfo);
-
-  cards.appendChild(readOrNotBtn);
-
-  
-  cards.appendChild(titleInfo);
-  cards.appendChild(deleteBtn);
-  cardContainer.appendChild(cards);
-}
-
-function addNewCardsToContainer() {
-   titleDataValue = titleData.value;
-   authorDataValue = authorData.value;
-   pagesDataValue = pagesData.value;
-   bookRead = bookReadCheck.checked;
+let form = document.querySelector('#form-submit');
+let closeBtn = document.querySelector('.cancel-btn');
 
 
-  
-}
-
-let titleDataValue ;
-let authorDataValue ;
-let pagesDataValue; 
-let bookRead ;
-
-
-function clearValue(){
-  titleData = '';
-  authorData = '';
-  pagesData = '';
-  bookReadCheck.reset();
-}
-
-
-submitBtn.addEventListener("click", () => {
-  addNewCardsToContainer()
-  addBookToLibrary(titleDataValue, authorDataValue, pagesDataValue, bookRead)
-  retriveData(myLibrary)
-  clearValue();
-
-
-
-  dialog.close();
-
-});
-cancelBtn.addEventListener("click", () => {
+closeBtn.addEventListener("click", () => {
   dialog.close();
 });
 
-readOrNotBtn.addEventListener("click", () => {
+
+let addBookBtn = document.querySelector('.add-book');
+let dialog = document.querySelector('#dialog')
+addBookBtn.addEventListener('click', () => {
+  dialog.showModal();
+})
+
+
+
+
+function colorChange(button) {
   if (
-    readOrNotBtn.classList.contains("yes") ||
-    readOrNotBtn.textContent === "Read"
+    button.classList.contains("yes") ||
+    button.textContent === "Read"
   ) {
-    readOrNotBtn.classList.remove("yes");
-    readOrNotBtn.classList.add("no");
-    readOrNotBtn.textContent = "Not Read";
+    button.classList.remove("yes");
+    button.classList.add("no");
+    button.textContent = "Not Read";
   } else if (
-    readOrNotBtn.classList.contains('no') || readOrNotBtn.textContent === 'Not Read'
+    button.classList.contains('no') || button.textContent === 'Not Read'
   ) {
-    readOrNotBtn.classList.remove("no");
-    readOrNotBtn.classList.add("yes");
-    readOrNotBtn.textContent = "Read";
+    button.classList.remove("no");
+    button.classList.add("yes");
+    button.textContent = "Read";
   }
-});
+}
+
+// added the functuallllity to add card its container
+
+form.addEventListener('submit', (e) => {
 
 
+  e.preventDefault();
+  bookTitle = titleData.value.trim();
+  bookAuthor = authorData.value.trim();
+  bookPages = parseInt(pagesData.value);
+  bookStatus = statusData.checked;
+
+
+
+  const result = myLibrary.find(book => book.title === bookTitle)
+  if (result) {
+    alert('The book already exists in the library');
+    return;
+  }
+  addBookToLibrary(bookTitle, bookAuthor, bookPages, bookStatus)
+  createBook(myLibrary);
+  clearValue();
+  dialog.close();
+
+
+
+
+
+
+})

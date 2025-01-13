@@ -30,90 +30,41 @@
 
         <!-- cards container section starts here -->
         <div class="cards-container">
-          <div class="card"> 
-             <div class="title card-info">
-              <p>Name:</p>
-              <span class="title-span"></span>
-            </div>
-            <div class="author card-info">
-              <p>Author:</p>
-              <span class="author-span"></span>
-            </div>
-            <div class="pages card-info">
-              <p>Pages:</p>
-              <span class="pages-span"></span>
-            </div>
-            <button class="readOrNot"></button>
-            <button class="delete">Remove</button>
-          </div>
-          <div class="card"> 
-             <div class="title card-info">
-              <p>Name:</p>
-              <span class="title-span"></span>
-            </div>
-            <div class="author card-info">
-              <p>Author:</p>
-              <span class="author-span"></span>
-            </div>
-            <div class="pages card-info">
-              <p>Pages:</p>
-              <span class="pages-span"></span>
-            </div>
-            <button class="readOrNot"></button>
-            <button class="delete">Remove</button>
-          </div>
-          <div class="card"> 
-             <div class="title card-info">
-              <p>Name:</p>
-              <span class="title-span"></span>
-            </div>
-            <div class="author card-info">
-              <p>Author:</p>
-              <span class="author-span"></span>
-            </div>
-            <div class="pages card-info">
-              <p>Pages:</p>
-              <span class="pages-span"></span>
-            </div>
-            <button class="readOrNot"></button>
-            <button class="delete">Remove</button>
-          </div>
+           
         </div>
         <!-- cards container section ends here -->
 
         <!-- designning dialog here -->
         <dialog id="dialog">
-          <div class="dialog-inner-div">
-            <p>Add New Book</p>
-            <div class="title dialog-part">
-              <input id="titleData" required maxlength="100" type="text" placeholder="Title" />
+          <form id="form-submit">
+            <div class="dialog-inner-div">
+              <p class="addBook">Add New Book</p>
+              <div class="title dialog-part">
+                <input id="titleData" required maxlength="100" type="text" placeholder="Title" />
+              </div>
+              <div class="author dialog-part">
+                <input id="authorData"
+                  required
+                  maxlength="100"
+                  type="text"
+                  placeholder="Author"
+                />
+              </div>
+              <div class="pages dialog-part">
+                <input type="number" id="pagesData" required  placeholder="Pages" />
+              </div>
+              <div class="checkbox">
+                <label for="book-read">Have You Read it.</label>
+                <input type="checkbox" name="book-read" id="book-read" />
+              </div>
+              <button class="submit-btn" type="submit" >Submit</button>
+  
+              <button class="cancel-btn">Cancel</button>
             </div>
-            <div class="author dialog-part">
-              <input id="authorData"
-                required
-                maxlength="100"
-                type="text"
-                placeholder="Author"
-              />
-            </div>
-            <div class="pages dialog-part">
-              <input type="number" id="pagesData" required max="12" placeholder="Pages" />
-            </div>
-            <div class="checkbox">
-              <label for="book-read">Have You Read it.</label>
-              <input type="checkbox" name="book-read" id="book-read" />
-            </div>
-            <button class="submit-btn" >Submit</button>
-
-            <button class="cancel-btn">Cancel</button>
-          </div>
+          </form>
         </dialog>
       </div>
       <!-- middle container ends here -->
-
-      <!-- footer starts here -->
-      <div class="footer"></div>
-      <!-- footer ends here -->
     </div>
     <!--  main container ends here -->
   </body>
