@@ -15,7 +15,7 @@ addBookBtn.addEventListener("click", () => {
   dialog.showModal();
 });
 
-const readOrNotBtn = document.createElement("button");
+
 // creating functions here
 
 const myLibrary = [];
@@ -29,11 +29,48 @@ function book(title, author, pages, readOrNot) {
 
 function addBookToLibrary(title, author, pages, readOrNot) {
   myLibrary.push(new book(title, author, pages, readOrNot));
-  for (let i = 0; i < myLibrary.length; i++) {
-    titleSpan.innerText = myLibrary[i].title;
-    spanAuthor.innerText = myLibrary[i].author;
-    spanPages.innerText = myLibrary[i].pages;
-    if (!myLibrary[i].readOrNot) {
+}
+
+
+function createStuff(){
+    
+    
+    
+}
+let readOrNotBtn = document.createElement("button");
+
+function retriveData(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    
+    
+    let titleInfo = document.createElement("div");
+    titleInfo.classList.add("title", "card-info");
+    let titleSpan = document.createElement("span");
+    titleSpan.classList.add("title-span");
+    let pTitle = document.createElement("p");
+    pTitle.innerText = "Name:";
+    let authorInfo = document.createElement("div");
+    let spanAuthor = document.createElement("span");
+    let pagesInfo = document.createElement("div");
+    let pAuthor = document.createElement("p");
+    authorInfo.classList.add("author", "card-info");
+    let pPages = document.createElement("p");
+    let spanPages = document.createElement("span");
+    let deleteBtn = document.createElement("button");
+    let cards = document.createElement("div");
+    cards.classList.add("card");
+    pAuthor.innerText = "Author:";
+    spanAuthor.classList.add("author-span");
+    pagesInfo.classList.add("pages", "card-info");
+    pPages.innerText = "Pages:";
+    spanPages.classList.add("pages-span");
+    deleteBtn.classList.add("delete");
+    deleteBtn.innerText = "Remove";
+    
+    titleSpan.textContent = arr[i].title;
+    spanAuthor = arr[i].author;
+    spanPages = arr[i].pages;
+    if (!arr[i].readOrNot) {
       readOrNotBtn.classList.add("no");
       readOrNotBtn.innerText = "Not Read";
     } else {
@@ -41,53 +78,6 @@ function addBookToLibrary(title, author, pages, readOrNot) {
       readOrNotBtn.innerText = "Read";
     }
   }
-}
-
-const bookReadCheck = document.querySelector("#book-read");
-
-// element creating
-const titleInfo = document.createElement("div");
-const titleSpan = document.createElement("span");
-const pTitle = document.createElement("p");
-const authorInfo = document.createElement("div");
-const spanAuthor = document.createElement("span");
-const pagesInfo = document.createElement("div");
-const pAuthor = document.createElement("p");
-const pPages = document.createElement("p");
-const spanPages = document.createElement("span");
-const deleteBtn = document.createElement("button");
-const cards = document.createElement("div");
-
-
-// class adding
-cards.classList.add("card");
-titleInfo.classList.add("title", "card-info");
-pTitle.innerText = "Name:";
-titleSpan.classList.add("title-span");
-authorInfo.classList.add("author", "card-info");
-pAuthor.innerText = "Author:";
-spanAuthor.classList.add("author-span");
-pagesInfo.classList.add("pages", "card-info");
-pPages.innerText = "Pages:";
-spanPages.classList.add("pages-span");
-
-
-submitBtn.addEventListener("click", () => {
-  const titleDataValue = titleData.value;
-  const authorDataValue = authorData.value;
-  const pagesDataValue = pagesData.value;
-  const bookRead = bookReadCheck.checked;
-
-  
-  
-
- 
-
-
-  
-
-
-  addBookToLibrary(titleDataValue, authorDataValue, pagesDataValue, bookRead);
 
   titleInfo.appendChild(pTitle);
   titleInfo.appendChild(titleSpan);
@@ -95,20 +85,84 @@ submitBtn.addEventListener("click", () => {
   authorInfo.appendChild(spanAuthor);
   pagesInfo.appendChild(pPages);
   pagesInfo.appendChild(spanPages);
+  addToContainer()
+
+}
+
+
+
+const bookReadCheck = document.querySelector("#book-read");
+
+// element creating
+
+function creatingElements() { 
+  
+
+  // class adding
+  
+  
+  
+  
+  
+  
+
+  
+
+}
+
+
+function addToSubContainer(){
+  
+}
+function addToContainer(){
+  
 
   cards.appendChild(titleInfo);
   cards.appendChild(authorInfo);
   cards.appendChild(pagesInfo);
 
   cards.appendChild(readOrNotBtn);
+
   
-  deleteBtn.classList.add("delete");
-  deleteBtn.innerText = "Remove";
   cards.appendChild(titleInfo);
   cards.appendChild(deleteBtn);
   cardContainer.appendChild(cards);
+}
+
+function addNewCardsToContainer() {
+   titleDataValue = titleData.value;
+   authorDataValue = authorData.value;
+   pagesDataValue = pagesData.value;
+   bookRead = bookReadCheck.checked;
+
+
+  
+}
+
+let titleDataValue ;
+let authorDataValue ;
+let pagesDataValue; 
+let bookRead ;
+
+
+function clearValue(){
+  titleData = '';
+  authorData = '';
+  pagesData = '';
+  bookReadCheck.reset();
+}
+
+
+submitBtn.addEventListener("click", () => {
+  addNewCardsToContainer()
+  addBookToLibrary(titleDataValue, authorDataValue, pagesDataValue, bookRead)
+  retriveData(myLibrary)
+  clearValue();
+
+
 
   dialog.close();
+
 });
 cancelBtn.addEventListener("click", () => {
   dialog.close();
@@ -122,9 +176,9 @@ readOrNotBtn.addEventListener("click", () => {
     readOrNotBtn.classList.remove("yes");
     readOrNotBtn.classList.add("no");
     readOrNotBtn.textContent = "Not Read";
-  }else if(
+  } else if (
     readOrNotBtn.classList.contains('no') || readOrNotBtn.textContent === 'Not Read'
-  ){
+  ) {
     readOrNotBtn.classList.remove("no");
     readOrNotBtn.classList.add("yes");
     readOrNotBtn.textContent = "Read";
