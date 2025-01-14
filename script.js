@@ -63,12 +63,12 @@ function createBook(libray) {
       div.classList.add('card')
       div.innerHTML = `
     <div class="title card-info">
-              <p>Name:</p>
-              <span class="title-span">${element.title}</span>
+              <p >Name:</p>
+              <span class="title-span wrap">${element.title}</span>
             </div>
             <div class="author card-info">
               <p>Author:</p>
-              <span class="author-span">${element.author}</span>
+              <span class="author-span wrap">${element.author}</span>
             </div>
             <div class="pages card-info">
               <p>Pages:</p>
