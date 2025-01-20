@@ -147,12 +147,10 @@
 
 #dialog{
     text-align: center;
-    width: 320px;
+    width: 300px;
     padding: 0.5rem 2.8rem;
-    position: absolute;
-    top: 25%;
-    left: 40%;
-    
+    margin: 0 auto;
+    align-self: center;
     
 }
 dialog > .dialog-part{
@@ -218,10 +216,9 @@ dialog::backdrop{
 }
 .cancel-btn{
     font-family: var(--header-text);
-    width: 100%;
+    align-self: center;
     border-radius: 0.7rem;
-    padding: 0.8rem 0;
-    margin: 1rem 0;
+    padding: 0.8rem 37%;
     cursor: pointer;
     font-size: 1.2rem;
     border: 1px solid black;
@@ -233,6 +230,12 @@ dialog::backdrop{
    border: white;
     box-shadow: 1px 1px 1px rgba(20, 20, 20, 0.2 );
 }
+.buttons-container{
+    display: flex;
+    flex-direction: column;
+    gap: 3;
+    margin: 0.4rem 0;
+}
 
 .wrap{
     overflow: auto;
@@ -240,13 +243,14 @@ dialog::backdrop{
     width: inherit;
 }
 
+form{
+    height: 100%;
+    width: 100%;
+}
+
 @media (max-width: 1100px) {
     .inner-header{
         padding: 2% 8%;
-    }
-    #dialog{
-        top: 20%;
-        left: 30%;
     }
     
 }
@@ -255,8 +259,6 @@ dialog::backdrop{
         padding: 3% 3%;
     }
     #dialog{
-        top: 25%;
-        left: 10%;
         width: 250px;
         padding: 0.6rem 1.8rem;
         
@@ -290,16 +292,23 @@ dialog::backdrop{
         outline: none;
         font-size: 1.2rem;
     }
+    .buttons-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
     .submit-btn{
         margin: 0.4rem;
         margin-top: 0.8rem;
         border: 2px solid;
         padding: 0.6rem 0;
+        width: 80%;
     }
     .cancel-btn{
         margin: 0.4rem;
         border: 2px solid;
-        padding: 0.6rem 0;
+        padding: 0.6rem 24%;
     }
     .dialog-part{
         margin-top: 0.7rem;

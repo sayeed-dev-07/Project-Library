@@ -8,10 +8,12 @@ let bookStatus;
 
 // input collect
 
-let titleData = document.querySelector('#titleData')
-let authorData = document.querySelector('#authorData')
-let pagesData = document.querySelector('#pagesData')
-let statusData = document.querySelector('#book-read')
+const titleData = document.querySelector('#titleData')
+const authorData = document.querySelector('#authorData')
+const pagesData = document.querySelector('#pagesData')
+const statusData = document.querySelector('#book-read')
+const addBookBtn = document.querySelector('.add-book');
+const dialog = document.getElementById('dialog')
 
 
 let myLibrary = []
@@ -119,11 +121,11 @@ let closeBtn = document.querySelector('.cancel-btn');
 
 closeBtn.addEventListener("click", () => {
   dialog.close();
+  return;
 });
 
 
-let addBookBtn = document.querySelector('.add-book');
-let dialog = document.querySelector('#dialog')
+
 addBookBtn.addEventListener('click', () => {
   dialog.showModal();
 })
