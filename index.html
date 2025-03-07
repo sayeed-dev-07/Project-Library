@@ -40,18 +40,17 @@
             <div class="dialog-inner-div">
               <p class="addBook">Add New Book</p>
               <div class="title dialog-part">
-                <input id="titleData"  maxlength="10" minlength="1" type="text" placeholder="Title" required/>
+                <input id="titleData"  maxlength="20" type="text" placeholder="Title" required/>
               </div>
               <div class="author dialog-part">
                 <input id="authorData"
-                  minlength="1"
-                  maxlength="40"
+                  maxlength="20"
                   type="text"
-                  placeholder="Author"
+                  placeholder="Author" required
                 />
               </div>
               <div class="pages dialog-part">
-                <input type="number" id="pagesData" max="2000" min="1"   placeholder="Pages" />
+                <input type="number" id="pagesData" max="2000" min="1"   placeholder="Pages" required/>
               </div>
               <div class="checkbox">
                 <label for="book-read">Have You Read it.</label>

@@ -68,33 +68,72 @@ class Library {
   }
 }
 let library = new Library(); 
+
+// Function to validate pages in real-time
+function validatePages() {
+  pagesData.setCustomValidity("");
+
+  if (pagesData.validity.rangeOverflow) {
+    pagesData.setCustomValidity("Pages can't exceed 1000");
+  } else if (pagesData.validity.rangeUnderflow) {
+    pagesData.setCustomValidity("The minimum number of pages is 1");
+  }
+  pagesData.reportValidity();
+}
+
+// Function to validate title in real-time
+function validateTitle() {
+  titleData.setCustomValidity("");
+  if (titleData.value.trim() === "") {
+    titleData.setCustomValidity("Book Title cannot be empty.");
+  }
+  titleData.reportValidity();
+}
+
+// Function to validate author in real-time
+function validateAuthor() {
+  authorData.setCustomValidity("");
+  if (authorData.value.trim() === "") {
+    authorData.setCustomValidity("Author Name cannot be empty.");
+  }
+  authorData.reportValidity();
+}
+
+// Add event listeners to trigger validation while typing
+titleData.addEventListener("input", validateTitle);
+authorData.addEventListener("input", validateAuthor);
+pagesData.addEventListener("input", validatePages);
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  
-
+  // Run validations again before submission
+  validateTitle();
+  validateAuthor();
+  validatePages();
 
   let bookTitle = titleData.value.trim();
   let bookAuthor = authorData.value.trim();
   let bookPages = parseInt(pagesData.value);
   let bookStatus = statusData.checked;
 
-
   if (!form.checkValidity()) {
-    form.reportValidity(); // Show browser's default error messages
+    form.reportValidity();
     return;
-  }else{
-    let newBook = new Book(bookTitle, bookAuthor, bookPages, bookStatus);
+  }
+
   if (library.myLibrary.some((book) => book.title === bookTitle)) {
     alert("The book already exists in the library");
     return;
   }
+
+  let newBook = new Book(bookTitle, bookAuthor, bookPages, bookStatus);
   library.addBookToLibrary(newBook);
+
   form.reset();
   dialog.close();
-  }
-  
 });
+
 
 closeBtn.addEventListener("click", () => {
   dialog.close();
