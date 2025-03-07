@@ -71,11 +71,20 @@ let library = new Library();
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  
+
+
   let bookTitle = titleData.value.trim();
   let bookAuthor = authorData.value.trim();
   let bookPages = parseInt(pagesData.value);
   let bookStatus = statusData.checked;
-  let newBook = new Book(bookTitle, bookAuthor, bookPages, bookStatus);
+
+
+  if (!form.checkValidity()) {
+    form.reportValidity(); // Show browser's default error messages
+    return;
+  }else{
+    let newBook = new Book(bookTitle, bookAuthor, bookPages, bookStatus);
   if (library.myLibrary.some((book) => book.title === bookTitle)) {
     alert("The book already exists in the library");
     return;
@@ -83,6 +92,8 @@ form.addEventListener("submit", (e) => {
   library.addBookToLibrary(newBook);
   form.reset();
   dialog.close();
+  }
+  
 });
 
 closeBtn.addEventListener("click", () => {
@@ -92,5 +103,3 @@ closeBtn.addEventListener("click", () => {
 addBookBtn.addEventListener("click", () => {
   dialog.showModal();
 });
-
-
